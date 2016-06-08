@@ -1,16 +1,52 @@
 import React, { PropTypes } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { selectActor, getActors } from '.././actions';
 
-function ActorsListPresenter() {
-  return (
-    <span>actors list</span>
-  )
+class ActorsListPresenter extends React.Component {
+
+  componentDidMount() {
+    this.props.getActors();
+  }
+
+  render() {
+
+    const { actors = [], selectActor } = this.props;
+
+    return (
+      <div>
+        <ul>
+          {actors.map((actor, idx) => <li key={actor.id}>
+            <a href="#" onClick={() => selectActor(actor.id)}>{actor.name}</a>
+          </li>)}
+        </ul>
+      </div>
+    )
+  }
+
 }
 
 ActorsListPresenter.propTypes = {
-  
+  actors: PropTypes.array,
+  selectActor: PropTypes.func
 };
 
-export default ActorsListPresenter;
+function mapStateToProps(state) {
+  return {
+    actors: state.actors
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    selectActor: bindActionCreators(selectActor, dispatch),
+    getActors: bindActionCreators(getActors, dispatch)
+  }
+}
+
+const ActorsListContainer = connect(mapStateToProps, mapDispatchToProps)(ActorsListPresenter);
+
+export default ActorsListContainer;
 
 
 /*

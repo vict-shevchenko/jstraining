@@ -14,7 +14,7 @@ export default function App() {
         </header>
         <div className="page__body container-fluid">
           <div className="page__content row">
-            <div className="col-sm-3 full-height-sm">
+            <div className="col-sm-3 full-height-sm actors__list">
               <ActorsList />
             </div>
             <div className="col-sm-9 full-height-sm">
