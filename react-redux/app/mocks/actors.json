@@ -1,0 +1,24 @@
+{
+    "actors": [
+        {
+            "id": "1",
+            "name": "Sylvester Stallone",
+            "films": ["Rambo", "Rocky"]
+        },
+        {
+            "id": "2",
+            "name": "Jason Statham",
+            "films": ["Transporter"]
+        },
+        {
+            "id": "3",
+            "name": "Dolph Lundgren",
+            "films": ["Universal Soldier"]
+        },
+        {
+            "id": "4",
+            "name": "Jet Li",
+            "films": ["Unleashed"]
+        }
+    ]
+}
